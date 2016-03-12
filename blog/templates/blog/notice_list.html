@@ -1,0 +1,43 @@
+
+{% extends "base.html" %}
+
+{% block content%}
+
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+      <h1 class="blog text-center">Udadak's News</h1>
+  </div>
+  <div class="col-md-3">
+  {% if user.is_superuser %}
+    <a href="{% url "notice_new" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span> Add</a>
+  {% endif %}
+
+  </div>
+</div>
+        <hr class="featurette-divider"></hr>
+    <div class="row">
+
+      <div class="col-md-2"></div>
+      <div class="col-md-8 content">
+
+        {% for notice  in  notices %}
+
+        <h1 class="posttitle"><a href="{% url "notice_detail" pk=notice.pk %}">{{ notice.title }}</a></h1>
+        <h4> {{ notice.author }}</h4>
+        <p class="published"> Date: {{notice.published_date}}</p>
+        <div class="border">
+
+        {%if notice.img %} <img class = "img-responsive img-rounded blogimage" src="{{notice.img.url}}">  {% endif %}
+        <p class="blogcontent"> {{notice.text|safe|truncatechars:200}}</p>
+
+
+
+        {% endfor %}
+
+      </div><!--close row-->
+      <div class="col-md-2"></div>
+    </div>
+  <!--close container-->
+  {% endblock content %}

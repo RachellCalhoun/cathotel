@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+ <div class="container">
+ {% for image in hotelimages %}
+   {% if forloop.counter0|divisibleby:2 %}
+ <div class="row">
+	<div class="col-md-6">
+		<div class="kitten center-block">
+			{% if image.photo %}
+			<img class = "img-responsive img-rounded center-block catimage" data-target="#{{image.title}}" data-toggle="modal" class="img-responsive thumbnail center-block" alt="cute kitten" src="{{ image.photo.url }}">
+			{% endif %}
+			<div class="description">
+				<h1>{{ image.title }}</h1>
+				{% if image.text %}
+				<h3>{{ image.text }}</h3>
+				{% endif %}
+			</div>
+		</div>
+	</div><!--col-->
+	<!-- Modal -->
+
+{% elif not forloop.counter0|divisibleby:2 %}
+	<div class="col-md-6">
+		<div class="kitten center-block">
+			{% if image.photo %}
+			<img class = "img-responsive img-rounded center-block catimage" data-target="#{{image.title}}" data-toggle="modal" class="img-responsive thumbnail center-block" alt="cute kitten" src="{{ image.photo.url }}">
+			{% endif %}
+			<div class="description">
+				<h1>{{ image.title }}</h1>
+				{% if image.text %}
+				<h3>{{ image.text }}</h3>
+				{% endif %}
+			</div>
+		</div>
+	</div><!--col-->
+	<!-- Modal -->
+</div><!--row-->
+
+{% endif %}
+{% if forloop.last and forloop.counter0|divisibleby:2%}
+
+ </div>
+{% endif %}
+
+
+
+
+{% endfor %}
+</div>
+{% endblock %}

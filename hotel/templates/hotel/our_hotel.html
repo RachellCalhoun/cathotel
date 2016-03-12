@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% for hotel in ourhotels %}
+
+ <div class="row" style="background">
+	 <div class="col-md-12 text-center">
+		 <h1>{{ hotel.title }}</h1>
+		 {% if hotel.photo %}
+		 <img class = "img-responsive img-rounded center-block hotelimage" src="{{ hotel.photo.url }}">
+		 {% endif %}
+		 {% if hotel.text %}
+		 <h3>{{ hotel.text }}</h3>
+		 {% endif %}
+		{% endfor %}
+	 </div>
+ </div>
+
+{% endblock %}

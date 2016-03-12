@@ -1,0 +1,122 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Cat Hotel</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <!--fonts and icons-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--to get google font-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:500,400,300,100|Titillium+Web:400,300,700|Raleway:400,500'  " rel="stylesheet">
+
+    <!--bootstrap-->
+    <link  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!--custom style sheet-->
+    <link href="{% static 'css/hotel.css' %}" rel="stylesheet">
+</head>
+<body>
+<header>
+<div class= "headercontainer">
+    <!-- <div class=" headercontainer text-center titlebackground" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url({% static 'images/catheader.jpg' %})
+    center 30% no-repeat;height:200px; "> -->
+        <div class="row">
+            <div class="col-md-2">
+                <a href="/"><img class="img-rounded img-responsive logoimg center-block" src="{% static 'images/lightleadershiplogo.jpeg' %}">
+                <p class="text-center ">Udadak</p></a>
+            </div>
+            <div class="col-md-6">
+                <div class="supertitle text-center ">Udadak Cat Hotel</div>
+            </div>
+            <div class="col-md-3">
+             {% if user.is_authenticated %}
+             <p class="text-center login"> Welcome back, {{user.username}}</p>
+             <p class="text-center "> <a href="/logout">Logout</a></p>
+             {% else %}
+            <p class="text-center login"><a href="/login">login</a> /<a href="/register"> join</a></p>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default navbar1">
+        <div class="container-fluid">
+            <div class="navbar-header navbar-right text-uppercase">
+                <a class="navbar-brand title-super" href="/">Cat hotel</a>
+               <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span> <span class="icon-bar"></span>
+                <span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="">
+                        <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" href="#">Our Hotel<span class="caret"></span></a>
+                         <ul class="dropdown-menu">
+                             <li><a class="dark" href="/ourhotel">About Us</a></li>
+                             <li><a class="dark" href="/ourservice">Service</a></li>
+                             <li><a class="dark" href="/location">Location</a></li>
+                              <li><a class="dark" href="#">FAQ</a></li>
+                         </ul>
+                    </li>
+                    <li class="">
+                        <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" href="#">Room<span class="caret"></span></a>
+                         <ul class="dropdown-menu">
+                             <li><a class="dark" href="/roomtype1">Room 1</a></li>
+                             <li><a class="dark" href="/roomtype2">Room 2</a></li>
+                         </ul>
+                    </li>
+                    <li class="">
+                        <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" href="#">Reservation-<span class="caret"></span></a>
+                         <ul class="dropdown-menu">
+                             <li><a class="dark" href="#">Money Talk</a></li>
+                             <li><a class="dark" href="#">Make a Reservation</a></li>
+                         </ul>
+                    </li>
+                    <li class="">
+                        <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" href="#">Community<span class="caret"></span></a>
+                         <ul class="dropdown-menu">
+                             <li><a class="dark" href="/notices">Notice</a></li>
+                             <li><a class="dark" href="/qna">QnA</a></li>
+                         </ul>
+                    </li>
+                    <li class="">
+                        <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" href="#">Gallery<span class="caret"></span></a>
+                         <ul class="dropdown-menu">
+                             <li><a class="dark" href="/hotelgallery">Hotel</a></li>
+                             <li><a class="dark" href="/catgallery">Cats</a></li>
+                         </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <div class="container contentcontainer">
+
+        {% block content %}
+        {% endblock %}
+
+
+    </div><!--container-->
+
+    <footer class="footer">
+        <div class="container footercontainer">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                Meowed by <a href="https://rachellcalhoun.pythonanywhere.com">Rachell</a>
+
+                </div>
+            </div>
+        </div>
+    </footer><!-- <script src="http://code.jquery.com/jquery.js"></script>-->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+    </body>
+</html>
