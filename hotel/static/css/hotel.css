@@ -1,0 +1,153 @@
+body {
+    background-color: #eeeeee;
+    color: #8f8d8e;
+    font-family: 'Raleway', sans-serif;
+}
+body a {
+    color:#ff9681;
+}
+.featurette-image {
+    max-height: 350px;
+}
+.locationimage {
+    max-height: 500px;
+}
+
+.logoimg {
+	max-width: 100px;
+	padding: 25px;
+}
+.supertitle {
+    font-size: 54px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    padding-top:15px;
+/*    color: white;*/
+}
+
+.login {
+	padding-top: 30px;
+    font-size: 25px;
+}
+
+.carouselcontainer {
+	height:400px;
+	max-height: 400px;
+	min-height: 400px;
+}
+
+.hotelimage {
+    display:block;
+    max-height: 100%;
+    max-width:100%;
+}
+.item{
+	display:block;
+	height:400px;
+	max-height: 400px;
+	min-height: 400px;
+	max-width:100%;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img{
+width: 100%; /* use this, or not */
+margin: auto;
+}
+
+.quarterbox {
+	height: 190px;
+	border: solid gray 2px;
+	margin:5px;
+	border-radius: 5px;
+	box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    padding-top: 5px;
+    padding-left:20px;
+}
+.contentcontainer {
+	padding-bottom: 20px;
+    min-height: 400px;
+}
+.kitten {
+  width:80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  margin-top:1em;
+  margin-bottom:auto;
+  min-height:500px;
+  max-height: 500px;
+  padding:1em;
+}
+/*qna page*/
+.questionpost {
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    border-radius: 5px;
+    margin:1em;
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    padding:20px;
+}
+.comment {
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    padding:5px;
+}
+.footercontainer {
+	height:20px;
+}
+
+@media(max-width: 640px) {
+    .title-super {
+        font-size: 1.2em;
+        padding-bottom: .5em;
+    }
+
+    .title-super2 {
+        font-size: 1em;
+    }
+
+    .subtitle {
+        display: none;
+    }
+    .item {
+    	max-height: 200px;
+    	max-height: 200px;
+    	min-height: 200px;
+    }
+    .kitten {
+        min-height:350px;
+        max-height: 350px;
+        width:100%;
+        overflow:hidden;
+    }
+    .contentcontainer {
+        min-height: 300px;
+        }
+}
+
+@media (min-width: 768px) {
+    /* Navbar positioning*/
+    .navbar-wrapper {
+        margin-top: 20px;
+    }
+
+    .navbar-wrapper .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .navbar-wrapper .navbar1, .navbar-wrapper .navbar2 {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .subtitle {
+        font-size: 1em;
+        margin-top: .5em;
+    }
+
+}
+
