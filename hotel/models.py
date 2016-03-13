@@ -9,10 +9,12 @@ class AboutUs(models.Model):
 	HOTEL = "Hotel"
 	SERVICE = "Service"
 	LOCATION = "Location"
+	FAQ = "FAQ"
 	POSTCATEGORY = (
 		(HOTEL, 'Hotel'),
 		(SERVICE, 'Service'),
 		(LOCATION, 'Location'),
+		(FAQ, 'FAQ'),
 		)
 	category = models.CharField(max_length=15, choices=POSTCATEGORY, default=HOTEL)
 

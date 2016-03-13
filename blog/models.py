@@ -34,7 +34,13 @@ class Notice(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     img = models.ImageField(null=True, blank=True)
-
+    PUBLIC = "Public"
+    PRIVATE = "Private"
+    PRIVACY = (
+        (PUBLIC, "Public"),
+        (PRIVATE, "Private"),
+        )
+    privacy = models.CharField(max_length=15, choices=PRIVACY, default=PUBLIC)
 
     def publish(self):
         self.publish_date = timezone.now()

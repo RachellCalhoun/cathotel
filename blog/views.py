@@ -16,7 +16,8 @@ def post_detail(request, pk):
 
 def notice_list(request):
     notices = Notice.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    return render(request,'blog/notice_list.html',{'notices': notices})
+    public = Notice.objects.filter(privacy="Public").filter(published_date__lte=timezone.now()).order_by('-published_date')
+    return render(request,'blog/notice_list.html',{'notices': notices, 'public': public})
 
 def notice_detail(request, pk):
     notice = get_object_or_404(Notice, pk=pk)

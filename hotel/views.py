@@ -19,6 +19,10 @@ def location(request):
     location = AboutUs.objects.filter(category="Location")
     return render(request, 'hotel/location.html', {'location': location})
 
+def faq(request):
+    questions = AboutUs.objects.filter(category="FAQ")
+    return render(request, 'hotel/faq.html', {'questions': questions})
+
 def cat_gallery(request):
 	catimages = CatGallery.objects.all()
 	return render(request, 'hotel/cat_gallery.html', {'catimages': catimages})
