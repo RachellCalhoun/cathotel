@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 class Post(models.Model):
-    author= models.ForeignKey('auth.User')
+    author= models.ForeignKey('auth.User', null=True)
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
@@ -19,7 +19,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments')
-    author = models.ForeignKey('auth.User')
+    author = models.ForeignKey('auth.User', null=True)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
 
@@ -28,7 +28,7 @@ class Comment(models.Model):
         return self.text
 
 class Notice(models.Model):
-    author= models.ForeignKey('auth.User')
+    author= models.ForeignKey('auth.User', null=True)
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)

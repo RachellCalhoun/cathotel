@@ -1,49 +1,44 @@
-
 {% extends "base.html" %}
-
 {% block content%}
 {% if not user.is_authenticated %}
 <div class="row">
-  <div class="col-md-12">
-  <h1 class="text-center">Do you have a question? Please <a href="/login">Login</a> or <a href="/register">Register</a> to ask. </h1>
-  </div>
+    <div class="col-md-12">
+        <h1 class="text-center">Do you have a question? Please <a href="/login">Login</a> or <a href="/register">Register</a> to ask. </h1>
+    </div>
 </div>
 {% endif %}
- {% if user.is_authenticated %}
+{% if user.is_authenticated %}
 <div class="row">
-  <div class="col-md-3"></div>
-  <div class="col-md-6">
-      <h1 class="blog text-center">Do you have a question? Ask!</h1>
-  </div>
-  <div class="col-md-3">
-
-    <a href="{% url "post_new" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span> Ask</a>
-
-  </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h1 class="blog text-center">Do you have a question? Ask!</h1>
+    </div>
+    <div class="col-md-3">
+        <a href="{% url "post_new" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span> Ask</a>
+    </div>
 </div>
-        <hr class="featurette-divider"></hr>
-    <div class="row">
-
-      <div class="col-md-2"></div>
-      <div class="col-md-8 content">
-
+<hr class="featurette-divider">
+</hr>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 content">
         {% for post  in  posts %}
-           {% if request.user.is_superuser or request.user == post.author %}
+        {% if request.user.is_superuser or request.user == post.author %}
         <h1 class="posttitle"><a href="{% url "post_detail" pk=post.pk %}">{{ post.title }}</a></h1>
         <h4> {{ post.author }}</h4>
         <p class="published"> Asked: {{post.published_date}}</p>
         <div class="border">
-
-        {%if post.img %} <img class = "img-responsive img-rounded blogimage" src="{{post.img.url}}">  {% endif %}
-        <p class="blogcontent"> {{post.text|safe|truncatechars:200}}</p>
-
-        <a href="{% url "blog.views.post_detail" pk=post.pk %}" class="comment">Replies: {{ post.comments.count }}</a>
+            {%if post.img %} <img class = "img-responsive img-rounded blogimage" src="{{post.img.url}}">  {% endif %}
+            <p class="blogcontent"> {{post.text|safe|truncatechars:200}}</p>
+            <a href="{% url "blog.views.post_detail" pk=post.pk %}" class="comment">Replies: {{ post.comments.count }}</a>
         </div>
         {% endif %}
         {% endfor %}
         {% endif %}
-      </div><!--close row-->
-      <div class="col-md-2"></div>
     </div>
-  <!--close container-->
-  {% endblock content %}
+    <!--close row-->
+    <div class="col-md-2"></div>
+</div>
+<!--close container-->
+{% endblock content %}
+

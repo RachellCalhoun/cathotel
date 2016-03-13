@@ -41,7 +41,7 @@ class HotelGallery(models.Model):
 		(PRIVATE, "Private"),
 		(PUBLIC, "Public"),
 		)
-	privacycategory = models.CharField(max_length=10, choices=PRIVACYCATEGORY, default=PRIVATE)
+	privacy = models.CharField(max_length=10, choices=PRIVACYCATEGORY, default=PRIVATE)
 
 	def __str__(self):
 		return self.title

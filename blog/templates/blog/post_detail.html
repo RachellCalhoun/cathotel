@@ -1,71 +1,61 @@
 {% extends "base.html" %}
-
 {% block content %}
-
-    {% if request.user.is_superuser or request.user == post.author %}
-    <div class="row">
-
-      <div class="col-md-2"></div>
-        <div class="col-md-8 text-center">
-          <h1 class="title">{{ post.title }}-{{ post.author }} {% if request.user == post.author %}
-          <a class="btn btn-default editbtn pull-right" href="{% url "post_edit" pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span> Edit </a>
-          <a class="btn btn-default deletebtn pull-right" href="{% url "post_remove" pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span> Delete</a>
-          {% endif %}
-          </h1>
-          <p><a href="/qna">Back</a></p>
-        </div>
-        </div><!--close row-->
-
-      <div class="row">
-        <div class="col-md-12 ">
-          <div class="questionpost">
+{% if request.user.is_superuser or request.user == post.author %}
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 text-center">
+        <h1 class="title">{{ post.title }}-{{ post.author }} {% if request.user == post.author %}
+            <a class="btn btn-default editbtn pull-right" href="{% url "post_edit" pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span> Edit </a>
+            <a class="btn btn-default deletebtn pull-right" href="{% url "post_remove" pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+            {% endif %}
+        </h1>
+        <p><a href="/qna">Back</a></p>
+    </div>
+</div>
+<!--close row-->
+<div class="row">
+    <div class="col-md-12 ">
+        <div class="questionpost">
             {%if post.img %} <img class = "img-responsive img-rounded blogimage" src="{{post.img.url}}">  {% endif %}
             <p class="blogcontent">{{ post.text|safe }}</p>
-              {% if post.published_date %}
-                <p>Asked: {{ post.published_date }}</p>
-              {% endif %}
-          </div>
+            {% if post.published_date %}
+            <p>Asked: {{ post.published_date }}</p>
+            {% endif %}
         </div>
-      </div>
-    <hr>
-    {% if post.author != user.is_superuser %}
-    <div class=" row ">
-      <div class="col-md-12">
-      {% for comment in post.comments.all %}
-          <div class="comment">
-          {{ comment.author.username}}
-                {{ comment.created_date }}
-                {% if request.user == comment.author %}
-                <a class="btn btn-default " href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span>Delete</a>
-
-                {% endif %}
-
-
+    </div>
+</div>
+<hr>
+{% if post.author != user.is_superuser %}
+<div class=" row ">
+    <div class="col-md-12">
+        {% for comment in post.comments.all %}
+        <div class="comment">
+            {{ comment.author.username}}
+            {{ comment.created_date }}
+            {% if request.user == comment.author %}
+            <a class="btn btn-default " href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span>Delete</a>
+            {% endif %}
             <p>{{ comment.text|linebreaks }}</p>
-             {% if forloop.last  %}
+            {% if forloop.last  %}
             <a class="btn btn-default pull-right" href="{% url "add_comment_to_post" pk=post.pk %}">Reply</a>
             {% endif %}
-            </div>
-              {% empty %}
-              <div class="comment">
-              <p>No replies here yet :(</p><a class="btn btn-default pull-right" href="{% url "add_comment_to_post" pk=post.pk %}">Reply</a>
-              </div>
-          {% endfor %}
-
-
-
-
-
-          </div>
-
-        </div><!---Close row div-->
-        {% endif %}
-     {% else %}
-    <div class="row">
-      <div class="col-md-12">
-        <p>Please <a href="/login">Login</a> or <a href="/register">Register</a> to access our QNA section.</p>
-      </div>
+        </div>
+        {% empty %}
+        <div class="comment">
+            <p>No replies here yet :(</p>
+            <a class="btn btn-default pull-right" href="{% url "add_comment_to_post" pk=post.pk %}">Reply</a>
+        </div>
+        {% endfor %}
     </div>
-    {% endif %}
-
+</div>
+<!---Close row div-->
+{% endif %}
+{% else %}
+<div class="row">
+    <div class="col-md-12">
+        <p>Please <a href="/login">Login</a> or <a href="/register">Register</a> to access our QNA section.</p>
+    </div>
+</div>
+{% endif %}
 {% endblock %}
+

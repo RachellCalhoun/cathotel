@@ -1,93 +1,82 @@
 {% extends 'base.html' %}
 {% block content %}
-
-
-
- <div class="container">
- {% for image in catimages %}
-   {% if forloop.counter0|divisibleby:2 %}
- <div class="row">
-	<div class="col-md-6">
-		<div class="kitten center-block">
-			{% if image.photo %}
-			<img class = "img-responsive img-rounded center-block catimage" data-target="#{{image.pk}}" data-toggle="modal" class="img-responsive thumbnail center-block" alt="cute kitten" src="{{ image.photo.url }}">
-			{% endif %}
-			<div class="description">
-				<h1>{{ image.title }}</h1>
-				{% if image.text %}
-				<h3>{{ image.text }}</h3>
-				{% endif %}
-			</div>
-		</div>
-	</div><!--col-->
-	<!-- Modal -->
-{% if user.is_authenticated %}
-<div class="modal fade" id="{{image.pk}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title text-center" id="myModalLabel">{{image.title}}</h4>
-      </div>
-      <div class="modal-body">
-        <img class="img-responsive" style="min-width:100%" src="{{image.photo.url}}">
-        <p class="text-dark">{{image.text}}. </p>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+<div class="container">
+    {% for image in catimages %}
+    {% if forloop.counter0|divisibleby:2 %}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="kitten center-block">
+                {% if image.photo %}
+                <img class = "img-responsive img-rounded center-block catimage" data-target="#{{image.pk}}" data-toggle="modal" class="img-responsive thumbnail center-block" alt="cute kitten" src="{{ image.photo.url }}">
+                {% endif %}
+                <div class="description">
+                    <h1>{{ image.title }}</h1>
+                    {% if image.text %}
+                    <h3>{{ image.text }}</h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!--col-->
+        <!-- Modal -->
+        {% if user.is_authenticated %}
+        <div class="modal fade" id="{{image.pk}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-center" id="myModalLabel">{{image.title}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="img-responsive" style="min-width:100%" src="{{image.photo.url}}">
+                        <p class="text-dark">{{image.text}}. </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% elif not forloop.counter0|divisibleby:2 %}
+        <div class="col-md-6">
+            <div class="kitten center-block">
+                {% if image.photo %}
+                <img class = "img-responsive img-rounded center-block catimage"  data-target="#{{image.pk}}" data-toggle="modal" class="img-responsive thumbnail center-block" alt="cute kitten" src="{{ image.photo.url }}">
+                {% endif %}
+                <div class="description">
+                    <h1>{{ image.title }}</h1>
+                    {% if image.text %}
+                    <h3>{{ image.text }}</h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!--col-->
+        <!-- Modal -->
     </div>
-  </div>
+    <!--row-->
+    {% if user.is_authenticated %}
+    <div class="modal fade" id="{{image.pk}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center" id="myModalLabel">{{image.title}}</h4>
+                </div>
+                <div class="modal-body">
+                    <img class="img-responsive" style="min-width:100%" src="{{image.photo.url}}">
+                    <p class="text-dark">{{image.text}}. </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
+    {% if forloop.last and forloop.counter0|divisibleby:2%}
 </div>
 {% endif %}
-
-{% elif not forloop.counter0|divisibleby:2 %}
-	<div class="col-md-6">
-		<div class="kitten center-block">
-			{% if image.photo %}
-			<img class = "img-responsive img-rounded center-block catimage"  data-target="#{{image.pk}}" data-toggle="modal" class="img-responsive thumbnail center-block" alt="cute kitten" src="{{ image.photo.url }}">
-			{% endif %}
-			<div class="description">
-				<h1>{{ image.title }}</h1>
-				{% if image.text %}
-				<h3>{{ image.text }}</h3>
-				{% endif %}
-			</div>
-		</div>
-	</div><!--col-->
-	<!-- Modal -->
-</div><!--row-->
-
-{% if user.is_authenticated %}
-<div class="modal fade" id="{{image.pk}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title text-center" id="myModalLabel">{{image.title}}</h4>
-      </div>
-      <div class="modal-body">
-        <img class="img-responsive" style="min-width:100%" src="{{image.photo.url}}">
-        <p class="text-dark">{{image.text}}. </p>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-{% endif %}
-
-{% endif %}
-{% if forloop.last and forloop.counter0|divisibleby:2%}
-
- </div>
-{% endif %}
-
-
-
-
-
 {% endfor %}
 </div>
 {% endblock %}

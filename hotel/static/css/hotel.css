@@ -33,23 +33,24 @@ body a {
 }
 
 .carouselcontainer {
-	height:400px;
-	max-height: 400px;
-	min-height: 400px;
+	height:480px;
+	max-height: 480px;
+	min-height: 480px;
 }
 .catimage {
     max-height: 350px;
 }
+
 .hotelimage {
     display:block;
-    max-height: 350px;
+    max-height: 450px;
     max-width:100%;
 }
-.item{
+.itembig{
 	display:block;
-	height:400px;
-	max-height: 400px;
-	min-height: 400px;
+	height:450px;
+	max-height: 450px;
+	min-height: 450px;
 	max-width:100%;
 }
 .carousel-inner > .item > img,
@@ -59,7 +60,7 @@ margin: auto;
 }
 
 .quarterbox {
-	height: 190px;
+	height: 180px;
 	border: solid gray 2px;
 	margin:5px;
 	border-radius: 5px;
@@ -118,9 +119,9 @@ margin: auto;
         display: none;
     }
     .item {
-    	max-height: 200px;
-    	max-height: 200px;
-    	min-height: 200px;
+    	max-height: 180px;
+    	max-height: 180px;
+    	min-height: 180px;
     }
     .kitten {
         min-height:350px;
@@ -128,9 +129,27 @@ margin: auto;
         width:100%;
         overflow:hidden;
     }
+    .carouselcontainer {
+        height:180px;
+        max-height: 180px;
+        min-height:180px;
+    }
+    .quarterbox {
+        padding: 3px;
+        overflow: hidden;
+    }
+    .quarterbox > h3 {
+        font-size: 20px;
+    }
+    .quarterbox > h1 {
+        font-size: 30px;
+    }
     .contentcontainer {
         min-height: 300px;
         }
+    .catimage {
+        height: cover;
+    }
 }
 
 @media (min-width: 768px) {
