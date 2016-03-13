@@ -60,14 +60,15 @@ margin: auto;
 }
 
 .quarterbox {
-	height: 180px;
+	height: 160px;
 	border: solid gray 2px;
 	margin:5px;
 	border-radius: 5px;
 	box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
     background-color: white;
     padding-top: 5px;
-    padding-left:20px;
+    padding-left:15px;
+    overflow:hidden;
 }
 .contentcontainer {
 	padding-bottom: 20px;

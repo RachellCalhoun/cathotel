@@ -30,7 +30,7 @@ def cat_gallery(request):
 def public(request):
 	catimages = CatGallery.objects.filter(category="Public")
 	publichotelimages = HotelGallery.objects.filter(privacy="Public")
-	notices = Notice.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:4]
+	notices = Notice.objects.filter(privacy="Public").filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
 	return render(request, 'hotel/home.html', {'catimages': catimages, 'publichotelimages': publichotelimages, 'notices': notices})
 
 def hotel_gallery(request):

@@ -35,6 +35,7 @@ class HotelGallery(models.Model):
 		(OTHER, "Other"),
 		)
 	category = models.CharField(max_length=10, choices=POSTCATEGORY, default=OTHER)
+
 	PRIVATE = "Private"
 	PUBLIC = "Public"
 	PRIVACYCATEGORY = (
