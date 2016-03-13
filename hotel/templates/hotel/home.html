@@ -31,7 +31,7 @@
                 <div class="carousel-caption">
                     <h3>{{ image.title }}</h3>
                     {% if image.text %}
-                    <p> {{ image.text }}</p>
+                    <p> {{ image.text|linebreaks|truncatechars:100 }}</p>
                     {% endif %}
                 </div>
             </div>
@@ -85,7 +85,7 @@
                             <div class="carousel-caption">
                                 <h3>{{ image.title }}</h3>
                                 {% if image.text %}
-                                <p> {{ image.text }}</p>
+                                <p> {{image.text|linebreaks|truncatechars:100 }}</p>
                                 {% endif %}
                             </div>
                         </div>
