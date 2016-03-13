@@ -116,8 +116,8 @@ margin: auto;
         font-size: 1em;
     }
 
-    .subtitle {
-        display: none;
+    .supertitle {
+        font-size: 25px;
     }
     .item {
     	max-height: 180px;
@@ -129,6 +129,13 @@ margin: auto;
         max-height: 350px;
         width:100%;
         overflow:hidden;
+    }
+    .kitten > h3 {
+        font-size: 15px;
+    }
+    .login {
+        font-size: 15px;
+        padding: 0px;
     }
     .carouselcontainer {
         height:180px;
@@ -149,8 +156,24 @@ margin: auto;
         min-height: 300px;
         }
     .catimage {
-        height: cover;
+        height: 180px;
+        max-height: 180px;
+        min-height: 180px;
     }
+    .hotelimage {
+        height: 180px;
+        max-height: 180px;
+        min-height: 180px;
+    }
+    }
+    .logoimg {
+    max-width: 100px;
+    padding: 5px;
+    }
+    .subtitle {
+        font-size: 1em;
+    }
+
 }
 
 @media (min-width: 768px) {
@@ -171,7 +194,7 @@ margin: auto;
 
     .subtitle {
         font-size: 1em;
-        margin-top: .5em;
+
     }
 
 }
