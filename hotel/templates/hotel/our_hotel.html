@@ -1,19 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% for hotel in ourhotels %}
+{% for entry  in  ourhotels %}
+       {% if forloop.counter0|divisibleby:2 %}
+           <div class="row featurette">
+        <hr class="featurette-divider"></hr>
+          <div class="col-md-7 col-md-push-5">
 
- <div class="row" style="background">
-	 <div class="col-md-12 text-center">
-		 <h1>{{ hotel.title }}</h1>
-		 {% if hotel.photo %}
-		 <img class = "img-responsive img-rounded center-block hotelimage" src="{{ hotel.photo.url }}">
-		 {% endif %}
-		 {% if hotel.text %}
-		 <h3>{{ hotel.text }}</h3>
-		 {% endif %}
-		{% endfor %}
-	 </div>
- </div>
+            <h2 class="featurette-heading">{{entry.title}} <span class="text-muted"></span></h2>
+            <p class="lead">{{entry.text}}
+          </div>
+          <div class="col-md-5 col-md-pull-7">
+            {%if entry.photo %} <img class = "featurette-image img-responsive center-block " src="{{entry.photo.url}}">  {% endif %}
+          </div><!--close col 7/5-->
+
+      </div><!--close row-->
+
+      {% else %}
+
+       <hr class="featurette-divider"></hr>
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">{{entry.title}} <span class="text-muted"></span></h2>
+          <p class="lead">{{entry.text}}</p>
+        </div>
+        <div class="col-md-5">
+          {%if entry.photo %}  <img class = "featurette-image img-responsive center-block"  src="{{entry.photo.url}}"></a> {% endif %}
+        </div><!--close col5-->
+      </div><!--closerow-->
+
+      {%endif%}
+      {% endfor %}
+
 
 {% endblock %}

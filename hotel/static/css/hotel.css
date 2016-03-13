@@ -8,6 +8,8 @@ body a {
 }
 .featurette-image {
     max-height: 350px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
 }
 .locationimage {
     max-height: 500px;
@@ -35,10 +37,12 @@ body a {
 	max-height: 400px;
 	min-height: 400px;
 }
-
+.catimage {
+    max-height: 350px;
+}
 .hotelimage {
     display:block;
-    max-height: 100%;
+    max-height: 350px;
     max-width:100%;
 }
 .item{
@@ -77,6 +81,7 @@ margin: auto;
   min-height:500px;
   max-height: 500px;
   padding:1em;
+  overflow: hidden;
 }
 /*qna page*/
 .questionpost {

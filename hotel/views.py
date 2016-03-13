@@ -26,10 +26,11 @@ def faq(request):
 def cat_gallery(request):
 	catimages = CatGallery.objects.all()
 	return render(request, 'hotel/cat_gallery.html', {'catimages': catimages})
+
 def public(request):
 	catimages = CatGallery.objects.filter(category="Public")
 	publichotelimages = HotelGallery.objects.filter(privacycategory="Public")
-	notices = Notice.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:5]
+	notices = Notice.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:4]
 	return render(request, 'hotel/home.html', {'catimages': catimages, 'publichotelimages': publichotelimages, 'notices': notices})
 
 def hotel_gallery(request):
