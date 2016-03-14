@@ -15,6 +15,7 @@ body a {
     max-height: 500px;
 }
 
+
 .logoimg {
 	max-width: 100px;
 	padding: 25px;
@@ -165,13 +166,18 @@ margin: auto;
         max-height: 180px;
         min-height: 180px;
     }
-    }
+
     .logoimg {
-    max-width: 100px;
-    padding: 5px;
+        max-width: 100px;
+        padding: 5px;
     }
     .subtitle {
         font-size: 1em;
+    }
+    #id_text{
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
     }
 
 }
