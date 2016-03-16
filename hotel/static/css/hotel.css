@@ -6,6 +6,7 @@ body {
 body a {
     color:#ff9681;
 }
+
 .featurette-image {
     max-height: 350px;
     border-radius: 5px;
@@ -14,7 +15,6 @@ body a {
 .locationimage {
     max-height: 500px;
 }
-
 
 .logoimg {
 	max-width: 100px;
@@ -54,10 +54,14 @@ body a {
 	min-height: 450px;
 	max-width:100%;
 }
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img{
-width: 100%; /* use this, or not */
-margin: auto;
+.carousel-inner > .item > img, .carousel-inner > .item > a > img{
+    width: 100%; /* use this, or not */
+    margin: auto;
+}
+#id_text{
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .quarterbox {
@@ -188,12 +192,12 @@ margin: auto;
         margin-top: 20px;
     }
 
-    .navbar-wrapper .container {
+    /*.navbar-wrapper .container {
         padding-right: 15px;
         padding-left: 15px;
-    }
+    }*/
 
-    .navbar-wrapper .navbar1, .navbar-wrapper .navbar2 {
+    .navbar-wrapper .navbar1 .navbar-wrapper .navbar2 {
         padding-right: 0;
         padding-left: 0;
     }
