@@ -9,6 +9,7 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url('^markdown/', include( 'django_markdown.urls')),
     url(r'^', include('hotel.urls')),
     url(r'^', include('accounts.urls')),
     url(r'^', include('blog.urls')),

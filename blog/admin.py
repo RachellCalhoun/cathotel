@@ -1,8 +1,11 @@
 from django.contrib import admin
 from .models import Post, Comment, Notice
 
+from django_markdown.admin import AdminMarkdownWidget
+
 
 class NoticeAdmin(admin.ModelAdmin):
+    formfield_overrides = {'text': {'widget': AdminMarkdownWidget}}
     fields = ['author', 'privacy', 'title', 'img', 'text', 'published_date']
     list_display = ('title','privacy', 'published_date')
     list_filter = ['published_date']
