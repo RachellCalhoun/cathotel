@@ -81,7 +81,8 @@ WSGI_APPLICATION = 'cathotelsite.wsgi.application'
 # TINYMCE_JS_URL = 'http://debug.example.org/tiny_mce/tiny_mce_src.js'
 TINYMCE_DEFAULT_CONFIG = {
     'plugins': "table,xhtmlxtras,spellchecker,paste,searchreplace, save, advhr, advimage, advlink, emotions, iespell, insertdatetime, preview",
-    'theme_advanced_buttons1' : "fullscreen, separator, preview, separator, bold, italic, underline, strikethrough, separator, bullist, numlist, outdent, indent, separator, undo, redo, separator, link, unlink, anchor, separator, image, cleanup, help, separator, code",
+    'theme_advanced_buttons1': "bold,italic,underline,strikethrough,sub,sup,separator,justifyleft,justifycenter,justifyright,justifyfull,separator,formatselect,fontselect,fontsizeselect",
+    'theme_advanced_buttons2': "bullist,numlist,outdent,indent,ltr,rtl,separator,link,unlink,anchor,image,separator,table,insertdate,inserttime,advhr,emotions,media,charmap,separator,undo,redo",
     'theme': 'advanced',
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 10,
@@ -92,7 +93,6 @@ TINYMCE_DEFAULT_CONFIG = {
 
 }
 TINYMCE_SPELLCHECKER = True
-
 
 
 # Database
