@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.flatpages',
     'django_markdown',
+    'tinymce',
     'hotel',
     'accounts',
     'blog',
@@ -76,6 +77,22 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'cathotelsite.wsgi.application'
+
+# TINYMCE_JS_URL = 'http://debug.example.org/tiny_mce/tiny_mce_src.js'
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,xhtmlxtras,spellchecker,paste,searchreplace, save, advhr, advimage, advlink, emotions, iespell, insertdatetime, preview",
+    'theme_advanced_buttons1' : "fullscreen, separator, preview, separator, bold, italic, underline, strikethrough, separator, bullist, numlist, outdent, indent, separator, undo, redo, separator, link, unlink, anchor, separator, image, cleanup, help, separator, code",
+    'theme': 'advanced',
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+    'elementpath': False,
+    'height': 300,
+    'width': 1000,
+    'resize': 'both',
+
+}
+TINYMCE_SPELLCHECKER = True
+
 
 
 # Database

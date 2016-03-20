@@ -5,13 +5,14 @@
 <div class="row featurette">
     <hr class="featurette-divider">
     </hr>
-    <div class="col-md-7 col-md-push-5">
+     <div class="col-md-5 ">
+        {%if entry.photo %} <img class = "featurette-image img-responsive center-block " src="{{entry.photo.url}}">  {% endif %}
+    </div>
+    <div class="col-md-7 ">
         <h2 class="featurette-heading">{{entry.title}} <span class="text-muted"></span></h2>
         <p class="lead">{{entry.text}}
     </div>
-    <div class="col-md-5 col-md-pull-7">
-        {%if entry.photo %} <img class = "featurette-image img-responsive center-block " src="{{entry.photo.url}}">  {% endif %}
-    </div>
+
     <!--close col 7/5-->
 </div>
 <!--close row-->
@@ -19,13 +20,14 @@
 <hr class="featurette-divider">
 </hr>
 <div class="row featurette">
-    <div class="col-md-7">
+<div class="col-md-5 col-md-push-7">
+        {%if entry.photo %}  <img class = "featurette-image img-responsive center-block"  src="{{entry.photo.url}}"></a> {% endif %}
+    </div>
+    <div class=" col-md-7 col-md-pull-5">
         <h2 class="featurette-heading">{{entry.title}} <span class="text-muted"></span></h2>
         <p class="lead">{{entry.text}}</p>
     </div>
-    <div class="col-md-5">
-        {%if entry.photo %}  <img class = "featurette-image img-responsive center-block"  src="{{entry.photo.url}}"></a> {% endif %}
-    </div>
+
     <!--close col5-->
 </div>
 <!--closerow-->

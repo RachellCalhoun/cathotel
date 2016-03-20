@@ -13,9 +13,10 @@ flatpages.register()
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url('^markdown/', include( 'django_markdown.urls')),
+    url(r'^tinymce/', include('tinymce.urls')),
     url(r'^', include('hotel.urls')),
     url(r'^', include('accounts.urls')),
     url(r'^', include('blog.urls')),
-      url(r'^(?P<url>.*/)$', views.flatpage),
+    url(r'^(?P<url>.*/)$', views.flatpage),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 urlpatterns += staticfiles_urlpatterns()

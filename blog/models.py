@@ -1,11 +1,12 @@
 from django.db import models
 from django.utils import timezone
 from django_markdown.models import MarkdownField
+from tinymce import models as tinymce_models
 
 class Post(models.Model):
     author= models.ForeignKey('auth.User', null=True)
     title = models.CharField(max_length=200)
-    text = MarkdownField()
+    text = tinymce_models.HTMLField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     img = models.ImageField(null=True, blank=True)
@@ -31,7 +32,7 @@ class Comment(models.Model):
 class Notice(models.Model):
     author= models.ForeignKey('auth.User', null=True)
     title = models.CharField(max_length=200)
-    text = MarkdownField()
+    text = tinymce_models.HTMLField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     img = models.ImageField(null=True, blank=True)

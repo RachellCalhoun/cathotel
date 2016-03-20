@@ -33,6 +33,10 @@ body a {
     font-size: 25px;
 }
 
+.tinymce {
+    min-width: 300px;
+}
+
 .carouselcontainer {
 	height:480px;
 	max-height: 480px;
