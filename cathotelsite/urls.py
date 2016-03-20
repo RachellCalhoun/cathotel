@@ -5,14 +5,13 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.views.generic import TemplateView
 from django.contrib.flatpages import views
-from django_markdown import flatpages
+# from django_markdown import flatpages
 
 admin.autodiscover()
-flatpages.register()
+# flatpages.register()
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url('^markdown/', include( 'django_markdown.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^', include('hotel.urls')),
     url(r'^', include('accounts.urls')),

@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils import timezone
-from django_markdown.models import MarkdownField
 from tinymce import models as tinymce_models
 
 class Post(models.Model):

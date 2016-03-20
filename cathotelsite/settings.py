@@ -39,7 +39,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
-    'django_markdown',
     'tinymce',
     'hotel',
     'accounts',
@@ -131,5 +130,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
-# Markdown
-MARKDOWN_EDITOR_SKIN = 'simple'
+
