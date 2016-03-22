@@ -5,10 +5,10 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.views.generic import TemplateView
 from django.contrib.flatpages import views
-# from django_markdown import flatpages
+
 
 admin.autodiscover()
-# flatpages.register()
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),

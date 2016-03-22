@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load django_markdown %}
 {% block content%}
 <div class="row">
     <div class="col-md-3"></div>
@@ -24,7 +23,7 @@
         <p class="published"> Date: {{notice.published_date}}</p>
         <div class="border">
             {%if notice.img %} <img class = "img-responsive img-rounded blogimage" src="{{notice.img.url}}">  {% endif %}
-            <p class="blogcontent"> {{notice.text|markdown_safe|truncatechars:200}}</p>
+            <p class="blogcontent"> {{notice.text|safe|truncatechars:200}}</p>
             {% endfor %}
         </div>
         <!--close border-->

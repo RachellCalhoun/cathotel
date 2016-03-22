@@ -29,12 +29,12 @@
                         </a>
                     </div>
                     <div class="col-md-6">
-                        <div class="supertitle text-center ">Udadak Cat Hotel</div>
+                        <div class="supertitle text-center "><a href="/">Udadak Cat Hotel</a></div>
                     </div>
                     <div class="col-md-3">
                         {% if user.is_authenticated %}
                         <p class="text-center login"> Welcome back, {{user.username}}</p>
-                        <p class="text-center "> <a href="/logout">Logout</a></p>
+                        <p class="text-center "> <a href="/logout">Logout</a> or <a href="/password_change">Change Password</a></p>
                         {% else %}
                         <p class="text-center login"><a href="/login">login</a> /<a href="/register"> join</a></p>
                         {% endif %}

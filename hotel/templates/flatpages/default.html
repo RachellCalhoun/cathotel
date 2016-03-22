@@ -1,12 +1,11 @@
 {% extends "base.html" %}
-{% load django_markdown %}
 {% load staticfiles %}
 
 {% block content %}
 <div class="row">
 	<div class="col-md-12">
 		<h1 class="text-center">{{ flatpage.title }}</h1>
-		<p>{{ flatpage.content|markdown_safe }}</p>
+		<p>{{ flatpage.content|safe }}</p>
 	</div>
 </div>
 {% endblock content %}
