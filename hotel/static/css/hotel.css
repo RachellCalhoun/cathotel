@@ -187,7 +187,9 @@ body a {
         margin-left: 0;
         margin-right: 0;
     }
-
+    .minicarousel {
+    margin-bottom: 1em;
+    }
 }
 
 @media (min-width: 768px) {
