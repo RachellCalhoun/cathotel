@@ -37,13 +37,25 @@
             {% endif %}
             <p>{{ comment.text|linebreaks }}</p>
             {% if forloop.last  %}
-            <a class="btn btn-default pull-right" href="{% url "add_comment_to_post" pk=post.pk %}">Reply</a>
+            <h3 class="title">New Comment</h3>
+            <p><a href="/qna">Back</a></p>
+            <form method="POST" class="post-form">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="addcommentbtn save btn btn-default">Submit Comment</button>
+            </form>
+
             {% endif %}
         </div>
         {% empty %}
         <div class="comment">
             <p>No replies here yet :(</p>
-            <a class="btn btn-default pull-right" href="{% url "add_comment_to_post" pk=post.pk %}">Reply</a>
+            <h3 class="title">New Comment</h3>
+            <p><a href="/qna">Back</a></p>
+            <form method="POST" class="post-form">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="addcommentbtn save btn btn-default">Submit Comment</button>
+            </form>
+
         </div>
         {% endfor %}
     </div>
