@@ -22,42 +22,17 @@ class AboutUs(models.Model):
 	def __str__(self):
 		return self.title
 
-class HotelGallery(models.Model):
+class Gallery(models.Model):
 	title = models.CharField(max_length=200)
 	photo = models.ImageField(upload_to="hotel")
 	text = models.TextField(blank=True, null=True)
-	ROOM1 = "Room1"
-	ROOM2 = "Room2"
-	OTHER = "Other"
+	HOTEL = "Hotel"
+	CAT = "Cat"
 	POSTCATEGORY = (
-		(ROOM1, "Room1"),
-		(ROOM2, "Room2"),
-		(OTHER, "Other"),
+		(HOTEL, "Hotel"),
+		(CAT, "Cat"),
 		)
-	category = models.CharField(max_length=10, choices=POSTCATEGORY, default=OTHER)
-
-	PRIVATE = "Private"
-	PUBLIC = "Public"
-	PRIVACYCATEGORY = (
-		(PRIVATE, "Private"),
-		(PUBLIC, "Public"),
-		)
-	privacy = models.CharField(max_length=10, choices=PRIVACYCATEGORY, default=PRIVATE)
-
-	def __str__(self):
-		return self.title
-
-class CatGallery(models.Model):
-	title = models.CharField(max_length=200)
-	photo = models.ImageField(upload_to="cats")
-	text = models.TextField(blank=True, null=True)
-	PRIVATE = "Private"
-	PUBLIC = "Public"
-	POSTCATEGORY = (
-		(PRIVATE, "Private"),
-		(PUBLIC, "Public"),
-		)
-	category = models.CharField(max_length=10, choices=POSTCATEGORY, default=PRIVATE)
+	category = models.CharField(max_length=10, choices=POSTCATEGORY, default=HOTEL)
 
 	def __str__(self):
 		return self.title

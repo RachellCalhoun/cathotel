@@ -1,56 +1,7 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<div class="container carouselcontainer">
-    <div id="myCarousel1" class="carousel slide" data-ride="carousel" data-interval="5000">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            {% for image in publichotelimages %}
-            {% if forloop.first %}
-            <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
-            {% else %}
-            <li data-target="#myCarousel1" data-slide-to="{{ forloop.counter}}"></li>
-            {% endif %}
-            {% endfor %}
-        </ol>
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            {% for image in publichotelimages %}
-            {% if forloop.first %}
-            <div class="item active itembig">
-                <img class = "img-responsive img-rounded center-block hotelimage" src="{{ image.photo.url }}">
-                <div class="carousel-caption">
-                    <h3>{{ image.title }}</h3>
-                    {% if image.text %}
-                    <p> {{ image.text|linebreaks|truncatechars:100 }}</p>
-                    {% endif %}
-                </div>
-            </div>
-            {% else %}
-            <div class="item itembig">
-                <img class = "img-responsive img-rounded center-block hotelimage" src="{{ image.photo.url }}">
-                <div class="carousel-caption">
-                    <h3>{{ image.title }}</h3>
-                    {% if image.text %}
-                    <p> {{ image.text|linebreaks|truncatechars:100 }}</p>
-                    {% endif %}
-                </div>
-            </div>
-            {% endif %}
-            {% endfor %}
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel1" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel1" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-</div>
-<!--close carousel container-->
-<hr>
+
 <div class="container">
     <div class="row">
         <div class="minicarousel">
@@ -58,7 +9,7 @@
                 <div id="myCarousel2" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
-                        {% for image in catimages %}
+                        {% for image in images %}
                         {% if forloop.first %}
                         <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
                         {% else %}
@@ -68,7 +19,7 @@
                     </ol>
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
-                        {% for image in catimages %}
+                        {% for image in images %}
                         {% if forloop.first %}
                         <div class="item active">
                             <img class = "img-responsive img-rounded center-block catimage" src="{{ image.photo.url }}">
@@ -108,7 +59,8 @@
         <div class="col-md-5">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="quarterbox">
+                    <div class="quarterbox" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url({% static 'images/catheader.jpg' %})
+                    center 30% no-repeat;height:180px; ">
                         <h3>Notices - stay informed</h3>
                         {% for notice in notices %}
                         <p><a href="{% url "notice_detail" pk=notice.pk %}">{{ notice.title }}</a></p>
@@ -118,7 +70,9 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="quarterbox">
+                <div class="quarterbox" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url({% static 'images/catheader.jpg' %})
+                    center 30% no-repeat;height:180px; ">
+
                         <h1 class="text-center">Check out our </h1>
                         <h1 class="text-center"><a href="#">Naver Blog</a></h1>
                     </div>

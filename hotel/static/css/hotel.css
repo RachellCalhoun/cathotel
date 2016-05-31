@@ -43,14 +43,9 @@ body a {
 	min-height: 480px;
 }
 .catimage {
-    max-height: 350px;
+    max-height: 400px;
 }
 
-.hotelimage {
-    display:block;
-    max-height: 450px;
-    max-width:100%;
-}
 .itembig{
 	display:block;
 	height:450px;
@@ -114,6 +109,10 @@ body a {
 .footercontainer {
 	height:20px;
 }
+.minicarousel {
+    margin-bottom: 1em;
+    margin-top: 1em;
+    }
 
 @media(max-width: 640px) {
     .title-super {
@@ -189,6 +188,7 @@ body a {
     }
     .minicarousel {
     margin-bottom: 1em;
+    margin-top: 1em;
     }
 }
 
@@ -197,11 +197,6 @@ body a {
     .navbar-wrapper {
         margin-top: 20px;
     }
-
-    /*.navbar-wrapper .container {
-        padding-right: 15px;
-        padding-left: 15px;
-    }*/
 
     .navbar-wrapper .navbar1 .navbar-wrapper .navbar2 {
         padding-right: 0;
