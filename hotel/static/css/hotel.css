@@ -6,7 +6,15 @@ body {
 body a {
     color:#E52786;
 }
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
 
+.navbar .navbar-collapse {
+  text-align: center;
+}
 .featurette-image {
     max-height: 350px;
     border-radius: 5px;
@@ -23,9 +31,8 @@ body a {
 
 }
 .notices-home {
-
     font-weight: bold;
-    margin-top:4em;
+    margin-top:1em;
 }
 
 .logoimg {
@@ -78,11 +85,13 @@ body a {
 .quarterbox {
 	height: 160px;
 	border: solid gray 2px;
-	margin:5px;
 	border-radius: 5px;
 	box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
     background-color: white;
     overflow:hidden;
+}
+.notice-box {
+    margin-bottom:2em;
 }
 .contentcontainer {
 	padding-bottom: 20px;
