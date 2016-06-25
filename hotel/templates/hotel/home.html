@@ -63,10 +63,16 @@
                     <div class="quarterbox"  style="background: url({% static 'images/notice.jpg' %})
                      center center no-repeat;background-size:cover">
                     <!--  <a href=""><img class ="box-img" src="{% static 'images/notice.jpg' %}"> </a> -->
-                        <div class="notices-home">
-                            {% for notice in notices %}
-                            <p class=""><a href="{% url "notice_detail" pk=notice.pk %}">{{ notice.title }}</a></p>
-                            {% endfor %}
+
+                        <div class="row">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6">
+                                <div class="notices-home">
+                                {% for notice in notices %}
+                                <p class=""><a href="{% url "notice_detail" pk=notice.pk %}">{{ notice.title }}</a></p>
+                                {% endfor %}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
