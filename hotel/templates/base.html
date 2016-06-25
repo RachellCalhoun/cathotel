@@ -27,6 +27,23 @@
                 <div class="container-fluid">
                     <div class="navbar-header navbar-right text-uppercase">
                         <a class="navbar-brand title-super" href="/"></a>
+                        {% if user.is_authenticated %}
+                         <ul class="nav navbar-nav">
+                             <li class="text-right">
+                                <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" href="#">{{user.username}}<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dark" href="/logout">Logout</a></li>
+                                    <li><a class="dark" href="/password_change">Change Password</a></li>
+                                </ul>
+                            </li>
+                            </ul>
+                            {% else %}
+                             <ul class="nav navbar-nav">
+                                <li class="pink text-uppercase"><a href="/login" class="pink">login</a></li>
+                                <li class="pink text-uppercase"><a href="/register" class="pink"> join</a></li>
+                                <!-- <a href="/register"> join</a> -->
+                            </ul>
+                            {% endif %}
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span> <span class="icon-bar"></span>
@@ -46,18 +63,6 @@
                                 </ul>
                             </li>
                             <li><a class="dark text-uppercase" href="/gallery">Gallery</a></li>
-                            {% if user.is_authenticated %}
-                             <li class="">
-                                <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" href="#">{{user.username}}<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dark" href="/logout">Logout</a></li>
-                                    <li><a class="dark" href="/password_change">Change Password</a></li>
-                                </ul>
-                            </li>
-                            {% else %}
-                            <li class=" text-uppercase"><a href="/login">login</a></li>
-                            <li class="text-uppercase"><a href="/register"> join</a></li>
-                            {% endif %}
                             <li class="text-uppercase"><a href=" http://blog.naver.com/hellocats">Udadak Blog</a></li>
                         </ul>
                     </div>

@@ -3,17 +3,25 @@ body {
     color: #8f8d8e;
     font-family: 'Raleway', sans-serif;
 }
-body a {
-    color:#E52786;
+body a, .pink{
+    color: #E52786;
 }
-.navbar .navbar-nav {
+/*.navbar .navbar-nav {
   display: inline-block;
   float: none;
   vertical-align: top;
+}*/
+.navbar-default .navbar-nav > li {
+    color: #777;
 }
-
-.navbar .navbar-collapse {
+.navbar-default .navbar-nav > .pink > a {
+    color: #E52786 ;
+}
+/*.navbar .navbar-collapse {
   text-align: center;
+}*/
+.right {
+    float:right;
 }
 .featurette-image {
     max-height: 350px;
