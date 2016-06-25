@@ -20,7 +20,7 @@
         </div>
         <!--col-->
         <!-- Modal -->
-        {% if user.is_authenticated %}
+
         <div class="modal fade" id="{{image.pk}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -37,7 +37,7 @@
                 </div>
             </div>
         </div>
-        {% endif %}
+
         {% elif not forloop.counter0|divisibleby:2 %}
         <div class="col-md-6">
             <div class="kitten center-block">
@@ -56,7 +56,7 @@
         <!-- Modal -->
     </div>
     <!--row-->
-    {% if user.is_authenticated %}
+
     <div class="modal fade" id="{{image.pk}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -73,7 +73,7 @@
             </div>
         </div>
     </div>
-    {% endif %}
+
     {% endif %}
     {% if forloop.last and forloop.counter0|divisibleby:2%}
 </div>
