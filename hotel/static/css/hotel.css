@@ -6,23 +6,24 @@ body {
 body a, .pink{
     color: #E52786;
 }
-/*.navbar .navbar-nav {
+.navbar .navbar-nav {
   display: inline-block;
   float: none;
   vertical-align: top;
-}*/
+}
 .navbar-default .navbar-nav > li {
     color: #777;
 }
 .navbar-default .navbar-nav > .pink > a {
     color: #E52786 ;
 }
-/*.navbar .navbar-collapse {
+.navbar .navbar-collapse {
   text-align: center;
-}*/
+}
 .right {
     float:right;
 }
+
 .featurette-image {
     max-height: 350px;
     border-radius: 5px;
@@ -56,8 +57,7 @@ body a, .pink{
 }
 
 .login {
-	padding-top: 30px;
-    font-size: 25px;
+	padding-top: 15px;
 }
 
 .tinymce {
