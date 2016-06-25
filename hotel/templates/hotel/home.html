@@ -59,23 +59,24 @@
         <div class="col-md-5">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="quarterbox" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url({% static 'images/catheader.jpg' %})
-                    center 30% no-repeat;height:180px; ">
-                        <h3>Notices - stay informed</h3>
-                        {% for notice in notices %}
-                        <p><a href="{% url "notice_detail" pk=notice.pk %}">{{ notice.title }}</a></p>
-                        {% endfor %}
+
+                    <div class="quarterbox"  style="background: url({% static 'images/notice.jpg' %})
+                     center center no-repeat;background-size:cover">
+                    <!--  <a href=""><img class ="box-img" src="{% static 'images/notice.jpg' %}"> </a> -->
+                        <div class="notices-home">
+                            {% for notice in notices %}
+                            <p class=""><a href="{% url "notice_detail" pk=notice.pk %}">{{ notice.title }}</a></p>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                <div class="quarterbox" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url({% static 'images/catheader.jpg' %})
-                    center 30% no-repeat;height:180px; ">
+                <a href=""><div class="quarterbox" style="background: url({% static 'images/blog.jpg' %})
+                     center center no-repeat;background-size:cover">
 
-                        <h1 class="text-center">Check out our </h1>
-                        <h1 class="text-center"><a href="#">Naver Blog</a></h1>
-                    </div>
+                    </div></a>
                 </div>
             </div>
         </div>

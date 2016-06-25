@@ -4,7 +4,7 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 body a {
-    color:#ff9681;
+    color:#E52786;
 }
 
 .featurette-image {
@@ -14,6 +14,19 @@ body a {
 }
 .locationimage {
     max-height: 500px;
+}
+.box-img {
+    width: 100%;
+    position:relative;
+    left: 0px;
+    top: 0px;
+
+}
+.notices-home {
+    float: right;
+    font-weight: bold;
+    margin-top:4em;
+    margin-right:8em;
 }
 
 .logoimg {
@@ -70,8 +83,6 @@ body a {
 	border-radius: 5px;
 	box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
     background-color: white;
-    padding-top: 5px;
-    padding-left:15px;
     overflow:hidden;
 }
 .contentcontainer {
