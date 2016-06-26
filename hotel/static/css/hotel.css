@@ -56,9 +56,10 @@ body a, .pink{
 /*    color: white;*/
 }
 
-.login {
-	padding-top: 15px;
-}
+/*.login > a {
+	padding-top: 1em;
+    display: block;
+}*/
 
 .tinymce {
     min-width: 300px;
