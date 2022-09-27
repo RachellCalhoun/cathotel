@@ -5,8 +5,8 @@
     <div class="col-md-2"></div>
     <div class="col-md-8 text-center">
         <h1 class="title">{{ post.title }}-{{ post.author }} {% if request.user == post.author %}
-            <a class="btn btn-default editbtn pull-right" href="{% url "post_edit" pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span> Edit </a>
-            <a class="btn btn-default deletebtn pull-right" href="{% url "post_remove" pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+            <a class="btn btn-default editbtn pull-right" href="{% url 'blog:post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span> Edit </a>
+            <a class="btn btn-default deletebtn pull-right" href="{% url 'blog:post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span> Delete</a>
             {% endif %}
         </h1>
         <p><a href="/qna">Back</a></p>
@@ -33,7 +33,7 @@
             {{ comment.author.username}}
             {{ comment.created_date }}
             {% if request.user == comment.author %}
-            <a class="btn btn-default " href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span>Delete</a>
+            <a class="btn btn-default " href="{% url 'blog:comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span>Delete</a>
             {% endif %}
             <p>{{ comment.text|linebreaks }}</p>
             {% if forloop.last  %}

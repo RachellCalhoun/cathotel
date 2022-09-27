@@ -20,7 +20,7 @@ def post_detail(request, pk):
             comment.post = post
             comment.save()
 
-            return redirect('blog.views.post_detail', pk=post.pk)
+            return redirect('blog:post_detail', pk=post.pk)
     else:
         form = CommentForm()
     return render(request, 'blog/post_detail.html', {'post': post, 'form': form})
@@ -45,7 +45,7 @@ def post_new(request):
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('blog.views.post_detail', pk=post.pk)
+            return redirect('blog:post_detail', pk=post.pk)
     else:
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
@@ -59,7 +59,7 @@ def post_edit(request, pk):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('blog.views.post_detail', pk=post.pk)
+            return redirect('blog:post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
@@ -73,7 +73,7 @@ def notice_new(request):
             notice.author = request.user
             notice.published_date = timezone.now()
             notice.save()
-            return redirect('blog.views.notice_detail', pk=notice.pk)
+            return redirect('blog:notice_detail', pk=notice.pk)
     else:
         form = NoticeForm()
     return render(request, 'blog/notice_edit.html', {'form': form})
@@ -89,7 +89,7 @@ def notice_edit(request, pk):
             notice.save()
             return redirect('blog.views.notice_detail', pk=notice.pk)
     else:
-        form = NoticeForm(instance=post)
+        form = NoticeForm(instance=notice)
     return render(request, 'blog/notice_edit.html', {'form': form})
 
 # @login_required
@@ -112,7 +112,7 @@ def notice_edit(request, pk):
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
-    return redirect('blog.views.post_list')
+    return redirect('blog:post_list')
 
 @staff_member_required
 def notice_remove(request, pk):
@@ -139,11 +139,11 @@ def notice_remove(request, pk):
 def comment_approve(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.approve()
-    return redirect('blog.views.post_detail', pk=comment.post.pk)
+    return redirect('blog:post_detail', pk=comment.post.pk)
 
 @login_required
 def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     post_pk = comment.post.pk
     comment.delete()
-    return redirect('blog.views.post_detail', pk=post_pk)
+    return redirect('blog:post_detail', pk=post_pk)

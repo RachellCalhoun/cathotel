@@ -1,10 +1,12 @@
-from django.conf.urls import include, url
+from django.urls import re_path
 from . import views
 
 
 urlpatterns = [
-    url(r'^ourhotel/$', views.our_hotel, name='our_hotel'),
-    url(r'^gallery/$', views.gallery, name='gallery'),
-    url(r'^rooms/$', views.rooms, name='rooms'),
-    url(r'^$', views.public, name='home'),
+    re_path(r'^ourhotel/$', views.our_hotel, name='our_hotel'),
+    re_path(r'^gallery/$', views.gallery, name='gallery'),
+    re_path(r'^rooms/$', views.rooms, name='rooms'),
+    re_path(r'^$', views.public, name='home'),
 ]
+
+app_name = 'hotel'

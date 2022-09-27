@@ -32,12 +32,12 @@ class Migration(migrations.Migration):
                 ('created_date', models.DateTimeField(default=django.utils.timezone.now)),
                 ('published_date', models.DateTimeField(null=True, blank=True)),
                 ('img', models.ImageField(null=True, upload_to='', blank=True)),
-                ('author', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('author', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
         ),
         migrations.AddField(
             model_name='comment',
             name='post',
-            field=models.ForeignKey(related_name='comments', to='blog.Post'),
+            field=models.ForeignKey(related_name='comments', to='blog.Post', on_delete=models.CASCADE),
         ),
     ]

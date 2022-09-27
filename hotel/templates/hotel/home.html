@@ -69,7 +69,7 @@
                             <div class="col-md-6">
                                 <div class="notices-home">
                                 {% for notice in notices %}
-                                <p class=""><a href="{% url "notice_detail" pk=notice.pk %}">{{ notice.title }}</a></p>
+                                <p class=""><a href="{% url 'blog:notice_detail' pk=notice.pk %}">{{ notice.title }}</a></p>
                                 {% endfor %}
                                 </div>
                             </div>

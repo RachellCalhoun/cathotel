@@ -3,7 +3,7 @@ from django.utils import timezone
 from tinymce import models as tinymce_models
 
 class Post(models.Model):
-    author= models.ForeignKey('auth.User', null=True)
+    author= models.ForeignKey('auth.User', null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = tinymce_models.HTMLField()
     created_date = models.DateTimeField(default=timezone.now)
@@ -19,8 +19,8 @@ class Post(models.Model):
         return self.title
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, related_name='comments')
-    author = models.ForeignKey('auth.User', null=True)
+    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
+    author = models.ForeignKey('auth.User', null=True, on_delete=models.CASCADE)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
 
@@ -29,7 +29,7 @@ class Comment(models.Model):
         return self.text
 
 class Notice(models.Model):
-    author= models.ForeignKey('auth.User', null=True)
+    author= models.ForeignKey('auth.User', null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = tinymce_models.HTMLField()
     created_date = models.DateTimeField(default=timezone.now)

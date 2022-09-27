@@ -4,8 +4,8 @@
     <div class="col-md-2"></div>
     <div class="col-md-8 text-center">
         <h1 class="title">{{ notice.title }}-{{ notice.author }} {% if request.user == post.author %}
-            <a class="btn btn-default editbtn pull-right" href="{% url "notice_edit" pk=notice.pk %}"><span class="glyphicon glyphicon-pencil"></span> Edit </a>
-            <a class="btn btn-default deletebtn pull-right" href="{% url "notice_remove" pk=notice.pk %}"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+            <a class="btn btn-default editbtn pull-right" href="{% url 'blog:notice_edit' pk=notice.pk %}"><span class="glyphicon glyphicon-pencil"></span> Edit </a>
+            <a class="btn btn-default deletebtn pull-right" href="{% url 'blog:notice_remove' pk=notice.pk %}"><span class="glyphicon glyphicon-remove"></span> Delete</a>
             {% endif %}
         </h1>
         <p><a href="/notices">Back</a></p>

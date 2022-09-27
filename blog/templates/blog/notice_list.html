@@ -7,7 +7,7 @@
     </div>
     <div class="col-md-3">
         {% if user.is_superuser %}
-        <a href="{% url "notice_new" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span> Add</a>
+        <a href="{% url 'blog:notice_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span> Add</a>
         {% endif %}
     </div>
 </div>
@@ -18,7 +18,7 @@
     {% if user.is_authenticated %}
     <div class="col-md-8 content">
         {% for notice  in  notices %}
-        <h1 class="posttitle"><a href="{% url "notice_detail" pk=notice.pk %}">{{ notice.title }}</a></h1>
+        <h1 class="posttitle"><a href="{% url 'blog:notice_detail' pk=notice.pk %}">{{ notice.title }}</a></h1>
         <h4> {{ notice.author }}</h4>
         <p class="published"> Date: {{notice.published_date}}</p>
         <div class="border">
@@ -32,7 +32,7 @@
     {% else %}
     <div class="col-md-8 content">
         {% for notice  in  public %}
-        <h1 class="posttitle"><a href="{% url "notice_detail" pk=notice.pk %}">{{ notice.title }}</a></h1>
+        <h1 class="posttitle"><a href="{% url 'blog:notice_detail' pk=notice.pk %}">{{ notice.title }}</a></h1>
         <h4> {{ notice.author }}</h4>
         <p class="published"> Date: {{notice.published_date}}</p>
         <div class="border">

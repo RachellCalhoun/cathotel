@@ -14,7 +14,7 @@
         <h1 class="blog text-center">Do you have a question? Ask!</h1>
     </div>
     <div class="col-md-3">
-        <a href="{% url "post_new" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span> Ask</a>
+        <a href="{% url 'blog:post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span> Ask</a>
     </div>
 </div>
 <hr class="featurette-divider">
@@ -24,13 +24,13 @@
     <div class="col-md-8 content">
         {% for post  in  posts %}
         {% if request.user.is_superuser or request.user == post.author %}
-        <h1 class="posttitle"><a href="{% url "post_detail" pk=post.pk %}">{{ post.title }}</a></h1>
+        <h1 class="posttitle"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
         <h4> {{ post.author }}</h4>
         <p class="published"> Asked: {{post.published_date}}</p>
         <div class="border">
             {%if post.img %} <img class = "img-responsive img-rounded blogimage" src="{{post.img.url}}">  {% endif %}
             <p class="blogcontent"> {{post.text|safe|truncatechars:200}}</p>
-            <a href="{% url "blog.views.post_detail" pk=post.pk %}" class="comment">Replies: {{ post.comments.count }}</a>
+            <a href="{% url 'blog:post_detail' pk=post.pk %}" class="comment">Replies: {{ post.comments.count }}</a>
         </div>
         {% endif %}
         {% endfor %}
